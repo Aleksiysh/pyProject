@@ -25,7 +25,6 @@ for i in range(pow(2, lenArgs)):
     print(line, end=" ")
     # print(ex)
     print()
-
     print(exp(expression, line))
 
 
