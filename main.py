@@ -12,19 +12,31 @@ def exp(express, arg):
         e = arg[4]
     if (len_args > 5):
         f = arg[5]
+    if (len_args > 6):
+        g = arg[6]
+    if (len_args > 7):
+        h = arg[7]
     return eval(express)
 
 
-print("введите количество аргументов")
+args = ("a", "b", "c", "d", "e", "f", "g", "h")
+print("введите количество аргументов не более 7")
 lenArgs = int(input())
-print("введите выражение")
+print("введите выражение в синтаксисе python")
+print("например : (a or b) and not c")
 expression = input()
-
+sknf = ""
 for i in range(pow(2, lenArgs)):
     line = list("{0:b}".format(i).zfill(lenArgs))
-    print(line, end=" ")
-    # print(ex)
-    print()
-    print(exp(expression, line))
-
+    #print(line, end=" ")
+    #print()
+    #print(exp(expression, line))
+    if (exp(expression, line) == 0):
+        sknf += "(" if (sknf == "") else " and ("
+        for i in range(lenArgs):
+            sknf += args[i] if (line[i] == "0") else "not " + args[i]
+            sknf += " or " if (i < lenArgs - 1) else ")"
+print(expression)
+print(sknf)
+pass
 
