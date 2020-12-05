@@ -16,7 +16,8 @@ def exp(express, arg):
         g = arg[6]
     if (len_args > 7):
         h = arg[7]
-    return eval(express)
+    res = eval(express)
+    return res
 
 
 args = ("a", "b", "c", "d", "e", "f", "g", "h")
@@ -31,7 +32,8 @@ print("Таблица истинности")
 for i in range(pow(2, lenArgs)):
     line = "{0:b}".format(i).zfill(lenArgs)
     print(line, exp(expression, line))
-    if (exp(expression, line) == 0):
+    result = exp(expression, line)
+    if (result == "0"):
         sknf += "(" if (sknf == "") else " and ("
         for i in range(lenArgs):
             sknf += args[i] if (line[i] == "0") else "not " + args[i]
@@ -42,4 +44,3 @@ print(expression)
 
 print("СКНФ")
 print(sknf)
-
