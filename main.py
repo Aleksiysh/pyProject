@@ -36,7 +36,7 @@ for i in range(pow(2, lenArgs)):
         for i in range(lenArgs):
             sknf += args[i] if (line[i] == "0") else "not " + args[i]
             sknf += " or " if (i < lenArgs - 1) else ")"
-print("исходное вырвжение")
+print("исходное выражение")
 print(expression)
 print("СКНФ")
 print(sknf)
