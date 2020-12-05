@@ -26,19 +26,20 @@ print("введите выражение в синтаксисе python")
 print("например : (a or b) and not c")
 expression = input()
 sknf = ""
+
+print("Таблица истинности")
 for i in range(pow(2, lenArgs)):
     line = "{0:b}".format(i).zfill(lenArgs)
-    #print(line, end=" ")
-    #print()
-    #print(exp(expression, line))
+    print(line, exp(expression, line))
     if (exp(expression, line) == 0):
         sknf += "(" if (sknf == "") else " and ("
         for i in range(lenArgs):
             sknf += args[i] if (line[i] == "0") else "not " + args[i]
             sknf += " or " if (i < lenArgs - 1) else ")"
+
 print("исходное выражение")
 print(expression)
+
 print("СКНФ")
 print(sknf)
-pass
 
