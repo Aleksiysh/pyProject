@@ -27,7 +27,7 @@ print("например : (a or b) and not c")
 expression = input()
 sknf = ""
 for i in range(pow(2, lenArgs)):
-    line = list("{0:b}".format(i).zfill(lenArgs))
+    line = "{0:b}".format(i).zfill(lenArgs)
     #print(line, end=" ")
     #print()
     #print(exp(expression, line))
