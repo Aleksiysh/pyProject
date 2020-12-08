@@ -1,46 +1,41 @@
-def exp(express, arg):
+# import operator
+
+OPERATORS_LOGIC = {
+    '!': [7, lambda x: 1 - x],
+    '&': [6, lambda x, y: x if x < y else y],
+    '|': [5, lambda x, y: x if x > y else y],
+    '~': [4, lambda x, y: 1 if 1 < 1 - x + y else 1 - x + y],
+}
+OPERATORS_MATH = {
+    '~': [7, lambda x: -x],
+    '^': [7, lambda x, y: x ** y],
+    '*': [6, lambda x, y,: x * y],
+    '/': [6, lambda x, y: x / y],
+    '+': [5, lambda x, y: x + y],
+    '-': [5, lambda x, y: x - y],
+}
+
+
+def Tokens(str):
+    operators = set(){"&&","-","*",}
+    tokens = []
+    return Lis
+
+
+def main():
+    OPERATORS = OPERATORS_MATH
+    print(OPERATORS['^'][1](2, 0.5))
+
+    # stack = []
+    # stack.append('a')
+    # stack.append('b')
+    # stack.append('c')
+    # print(stack.pop())
+    # print(stack.pop())
+    # print(stack.pop())
+    # # a = polska('1+4*3')
     pass
-    len_args = len(arg)
-    if (len_args > 1):
-        a = int(arg[0])
-        b = int(arg[1])
-    if (len_args > 2):
-        c = arg[2]
-    if (len_args > 3):
-        d = arg[3]
-    if (len_args > 4):
-        e = arg[4]
-    if (len_args > 5):
-        f = arg[5]
-    if (len_args > 6):
-        g = arg[6]
-    if (len_args > 7):
-        h = arg[7]
-    res = eval(express)
-    return res
 
 
-args = ("a", "b", "c", "d", "e", "f", "g", "h")
-print("введите количество аргументов не более 7")
-lenArgs = int(input())
-print("введите выражение в синтаксисе python")
-print("например : (a or b) and not c")
-expression = input()
-sknf = ""
-
-print("Таблица истинности")
-for i in range(pow(2, lenArgs)):
-    line = "{0:b}".format(i).zfill(lenArgs)
-    print(line, exp(expression, line))
-    result = exp(expression, line)
-    if (result == "0"):
-        sknf += "(" if (sknf == "") else " and ("
-        for i in range(lenArgs):
-            sknf += args[i] if (line[i] == "0") else "not " + args[i]
-            sknf += " or " if (i < lenArgs - 1) else ")"
-
-print("исходное выражение")
-print(expression)
-
-print("СКНФ")
-print(sknf)
+if __name__ == "__main__":
+    main()
